@@ -15,16 +15,24 @@ class User extends Authenticatable implements JWTSubject
         'email',
         'password',
         'phone',
-        'admin'
     ];    
 
     protected $hidden = [
         'password'
     ];
 
-    public function getNameAttribute()
+    protected $appends = [
+        'full_name'
+    ];
+
+    public function getFullNameAttribute()
     {
         return "{$this->first_name} {$this->last_name}";
+    }
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
     }
 
     public function customers()
@@ -57,7 +65,6 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(Batch::class, 'user_id');
     }
 
-    // JWT
     public function getJWTIdentifier()
     {
         return $this->getKey();

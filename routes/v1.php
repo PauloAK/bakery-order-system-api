@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\v1\AuthController;
+use App\Http\Controllers\v1\CustomerController;
+use App\Http\Controllers\v1\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('api')->prefix('auth')->name('auth.')->group(function () {
@@ -12,5 +14,6 @@ Route::middleware('api')->prefix('auth')->name('auth.')->group(function () {
 });
 
 Route::middleware('auth:api')->group(function () {
-    
+    Route::resource('products', ProductController::class);
+    Route::resource('customers', CustomerController::class);
 });
