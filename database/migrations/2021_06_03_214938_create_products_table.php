@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('short_description', 255)->nullable();
             $table->text('long_description')->nullable();
-            $table->decimal('value', 10, 2);
+            $table->integer('value');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');

@@ -17,7 +17,7 @@ class CreatePaymentsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('order_id');
             $table->string('method', 100);
-            $table->decimal('amount', 10, 2);
+            $table->integer('amount');
             $table->string('status', 50);
             $table->timestamps();
             
