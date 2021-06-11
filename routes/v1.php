@@ -14,6 +14,6 @@ Route::middleware('api')->prefix('auth')->name('auth.')->group(function () {
 });
 
 Route::middleware('auth:api')->group(function () {
-    Route::resource('products', ProductController::class);
-    Route::resource('customers', CustomerController::class);
+    Route::apiResource('products', ProductController::class);
+    Route::apiResource('customers', CustomerController::class);
 });
