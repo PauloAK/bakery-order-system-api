@@ -27,7 +27,7 @@ class UpdateProductRequest extends FormRequest
             'name' => ['required', 'max:255'],
             'short_description' => ['nullable', 'max:255'],
             'long_description' => ['nullable'],
-            'value' => ['required', 'integer']
+            'value' => ['required', 'integer', 'min:0']
         ];
     }
 }

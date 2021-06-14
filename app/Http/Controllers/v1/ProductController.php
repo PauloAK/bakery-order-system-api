@@ -24,7 +24,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = $this->product->where('user_id', auth()->id())->get();
+        $products = $this->product->where('user_id', auth()->id())
+            ->orderBy('name')
+            ->paginate(10);
         return ProductResource::collection($products);
     }
 
