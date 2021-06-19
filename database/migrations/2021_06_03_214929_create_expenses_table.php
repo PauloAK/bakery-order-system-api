@@ -19,8 +19,8 @@ class CreateExpensesTable extends Migration
             $table->decimal('quantity', 10, 2);
             $table->string('quantity_type', 50);
             $table->boolean('quantity_is_integer')->default(FALSE);
-            $table->decimal('value', 10, 2)->nullable();
-            $table->decimal('stock', 10, 2)->nullable();
+            $table->integer('value')->nullable();
+            $table->decimal('stock', 20, 2)->nullable();
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
             
